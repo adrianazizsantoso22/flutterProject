@@ -16,10 +16,10 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 3. Selanjutnya, pastikan Anda sudah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
 4. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
 5. Juga, unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
-6. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan folder "dart-sdk" maupun folder "flutter" pada C:\Users\<username>\StudioProjects\<nama Flutter Project>
-7. Carilah menu "Edit the system environment variables" pada menu Start, lalu klik "Environment variables" lalu tambahkan "C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin" dan "C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH
-8. Bukalah pengaturan pada Android Studio lalu pada bagian "Languages & Frameworks", atur Dart SDK Path pada "C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter"
-9. Masih pada bagian  "Languages & Frameworks", kini atur Flutter Path pada "C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter"
+6. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan folder "dart-sdk" maupun folder "flutter" pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
+7. Carilah menu "Edit the system environment variables" pada menu Start, lalu klik "Environment variables" lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
+8. Bukalah pengaturan pada Android Studio lalu pada bagian "Languages & Frameworks", atur Dart SDK Path pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+9. Masih pada bagian  "Languages & Frameworks", kini atur Flutter Path pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
 10. Buatlah sebuah Flutter Project di mana Anda membuat kodingan berikut pada folder "src":
 10a. git_commands.sh
 ```git_commands.sh
