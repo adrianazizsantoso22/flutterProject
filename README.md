@@ -11,17 +11,17 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 
 ## Langkah pengerjaan _Flutter project_
 
-1. Pertama-tama, pastikan kita sudah mengunduh Android Studio. Jika belum, unduhlah Android Studio melalui [tautan berikut](https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC-IOZnVixm20JUfP0gddBMfqrT83&gclid=Cj0KCQjwnui_BhDlARIsAEo9GutPFzO4kVmx5lW25nYRad8nXDGhMet_m04X3o8KFmk99KhDkrO5ThcaAhQXEALw_wcB&gclsrc=aw.ds)
-2. Lalu, pastikan kita juga sudah mengunduh Visual Studio Code. Jika belum, unduhlah Visual Studio Code melalui [tautan berikut](https://code.visualstudio.com/Download)
-3. Kemudian, pastikan kita sudah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
-4. Setelah Visual Studio Installer terpasang
+1. Pertama-tama, pastikan kita telah mengunduh Android Studio. Jika belum, unduhlah Android Studio melalui [tautan berikut](https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC-IOZnVixm20JUfP0gddBMfqrT83&gclid=Cj0KCQjwnui_BhDlARIsAEo9GutPFzO4kVmx5lW25nYRad8nXDGhMet_m04X3o8KFmk99KhDkrO5ThcaAhQXEALw_wcB&gclsrc=aw.ds)
+2. Lalu, pastikan kita juga telah mengunduh Visual Studio Code. Jika belum, unduhlah Visual Studio Code melalui [tautan berikut](https://code.visualstudio.com/Download)
+3. Kemudian, pastikan kita juga telah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
+4. Pada Visual Studio Installer, unduhlah Visual Studio Community 2022 Preview sembari meng-_install workload_ berikut: a) _ASP.NET and web development_, b) _.NET desktop development_, c) _WinUI application development_, dan d) _Data storage and processing_.
 5. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
 6. Juga, jangan lupa unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
 7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
 8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
 9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
 10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
-11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada folder "src":
+11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada _folder_ `src`:
 11a. git_commands.sh
 ```git_commands.sh
 #!/bin/bash
@@ -425,10 +425,76 @@ class UserModel {
   }
 }
 ```
-11. Bukalah Terminal lalu ketik ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
-12. 
+12. Bukalah Terminal lalu ketik ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
+13. Lalu, ketik ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
+14. Berikutnya, ketik ```flutter pub add hive_flutter:^1.1.0```
+15. Selanjutnya, ketik ```flutter pub get```
+16. Buat _file_ baru di _folder_ `dart-sdk/lib/models` bernama `user_model.dart` dengan isi sebagai berikut:
+```dart
+import 'package:objectbox/objectbox.dart';
 
-Dengan mengikuti langkah-langkah di atas, Anda akan bisa memiliki aplikasi Flutter yang sepenuhnya berfungsi dengan pengaturan yang tepat
+@Entity()
+class UserModel {
+  int id = 0; // ID pengguna
+  String name; // Nama pengguna
+
+  UserModel({required this.name});
+}
+```
+17. Untuk menghasilkan kode ObjectBox:, jalankan perintah berikut di Terminal:
+```bash
+flutter pub run build_runner build
+```
+18. Ubah kode di `main.dart` untuk menginisialisasi ObjectBox:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:objectbox/objectbox.dart';
+import 'objectbox.g.dart'; // file yang dihasilkan
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final store = await openStore(); // Membuka store ObjectBox
+  runApp(MyApp(store: store));
+}
+
+class MyApp extends StatelessWidget {
+  final Store store;
+
+  MyApp({required this.store});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My ObjectBox App',
+      home: HomeScreen(store: store),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  final Store store;
+
+  void addUser(String name) {
+    final user = UserModel(name: name);
+    store.box<UserModel>().put(user); // Menyimpan data
+  }
+
+  List<UserModel> getUsers() {
+    return store.box<UserModel>().getAll(); // Mengambil semua data
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('ObjectBox Example')),
+      body: Center(child: Text('Hello, ObjectBox!')),
+    );
+  }
+}
+```
+
+19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan mengetikkan perintah `flutter run`
 
 ### Deskripsi _database_
 Aplikasi ini menggunakan ObjectBox untuk menyimpan informasi pengguna. Model pengguna didefinisikan dalam _file_ ```user_model.dart```.
