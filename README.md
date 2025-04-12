@@ -11,6 +11,8 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 
 ## Langkah pengerjaan _Flutter project_
 
+![image](https://github.com/user-attachments/assets/82c9d8ec-9a44-49ec-8ed2-4fb5cd26a376)
+
 1. Pertama-tama, pastikan kita telah mengunduh Android Studio. Jika belum, unduhlah Android Studio melalui [tautan berikut](https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC-IOZnVixm20JUfP0gddBMfqrT83&gclid=Cj0KCQjwnui_BhDlARIsAEo9GutPFzO4kVmx5lW25nYRad8nXDGhMet_m04X3o8KFmk99KhDkrO5ThcaAhQXEALw_wcB&gclsrc=aw.ds)
 2. Lalu, pastikan kita juga telah mengunduh Visual Studio Code. Jika belum, unduhlah Visual Studio Code melalui [tautan berikut](https://code.visualstudio.com/Download)
 3. Kemudian, pastikan kita juga telah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
@@ -20,6 +22,13 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
 8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
 9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+
+
+![image](https://github.com/user-attachments/assets/e21fee64-c505-43a7-8cc2-146f04ace57a)
+
+![image](https://github.com/user-attachments/assets/1aa1d6ee-0295-4c62-8ffc-f24176d8766e)
+
+
 10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
 11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada _folder_ `src`:
 11a. git_commands.sh
@@ -425,9 +434,15 @@ class UserModel {
   }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/fbefd834-b2e0-43fd-8f10-c642e788dbac)
+
 12. Bukalah Terminal lalu jalankan perintah ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
 13. Lalu, jalankan perintah ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
 14. Berikutnya, jalankan perintah ```flutter pub add hive_flutter:^1.1.0```
+
+![image](https://github.com/user-attachments/assets/fc013b7f-c2d9-4a40-88d8-6f947d2a3f42)
+
 15. Selanjutnya, jalankan perintah ```flutter pub get```
 16. Buat _file_ baru di _folder_ `dart-sdk/lib/models` bernama `user_model.dart` dengan isi sebagai berikut:
 ```dart
