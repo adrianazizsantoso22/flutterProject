@@ -11,17 +11,18 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 
 ## Langkah pengerjaan _Flutter project_
 
-1. Pertama, pastikan Anda sudah mengunduh Android Studio. Jika belum, unduhlah Android Studio melalui [tautan berikut](https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC-IOZnVixm20JUfP0gddBMfqrT83&gclid=Cj0KCQjwnui_BhDlARIsAEo9GutPFzO4kVmx5lW25nYRad8nXDGhMet_m04X3o8KFmk99KhDkrO5ThcaAhQXEALw_wcB&gclsrc=aw.ds)
-2. Berikutnya, pastikan Anda juga sudah mengunduh Visual Studio Code. Jika belum, unduhlah Visual Studio Code melalui [tautan berikut](https://code.visualstudio.com/Download)
-3. Selanjutnya, pastikan Anda sudah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
-4. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
-5. Juga, unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
-6. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan folder "dart-sdk" maupun folder "flutter" pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
-7. Carilah menu "Edit the system environment variables" pada menu Start, lalu klik "Environment variables" lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
-8. Bukalah pengaturan pada Android Studio lalu pada bagian "Languages & Frameworks", atur Dart SDK Path pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
-9. Masih pada bagian  "Languages & Frameworks", kini atur Flutter Path pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
-10. Buatlah sebuah Flutter Project di mana Anda membuat kodingan berikut pada folder "src":
-10a. git_commands.sh
+1. Pertama-tama, pastikan kita sudah mengunduh Android Studio. Jika belum, unduhlah Android Studio melalui [tautan berikut](https://developer.android.com/studio?gad_source=1&gbraid=0AAAAAC-IOZnVixm20JUfP0gddBMfqrT83&gclid=Cj0KCQjwnui_BhDlARIsAEo9GutPFzO4kVmx5lW25nYRad8nXDGhMet_m04X3o8KFmk99KhDkrO5ThcaAhQXEALw_wcB&gclsrc=aw.ds)
+2. Lalu, pastikan kita juga sudah mengunduh Visual Studio Code. Jika belum, unduhlah Visual Studio Code melalui [tautan berikut](https://code.visualstudio.com/Download)
+3. Kemudian, pastikan kita sudah mengunduh Visual Studio Installer. Jika belum, unduhlah Visual Studio Installer melalui [tautan berikut](https://code.visualstudio.com/Download)
+4. Setelah Visual Studio Installer terpasang
+5. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
+6. Juga, jangan lupa unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
+7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
+8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
+9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada folder "src":
+11a. git_commands.sh
 ```git_commands.sh
 #!/bin/bash
 
@@ -72,7 +73,7 @@ git push -u origin development || { echo "Gagal mengirim branch 'development' ke
 # Menampilkan pesan sukses
 echo "Repositori berhasil diinisialisasi dan branch 'development' sudah dipush ke remote."
 ```
-10b. Main.java
+11b. Main.java
 ```Main.java
 import java.util.Scanner;
 import java.util.Calendar;
@@ -155,7 +156,7 @@ public class Main {
     }
 }
 ```
-10c. main.dart
+11c. main.dart
 ```main.dart
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -225,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Pesan disimpan
 ```
-10d. pubspec.yaml
+11d. pubspec.yaml
 ```pubspec.yaml
 name: nama_proyek
 description: Aplikasi Flutter yang menggunakan Hive dan state management.
@@ -277,7 +278,7 @@ dev_dependencies:
     sdk: flutter
   mockito: ^5.0.0 # Untuk mocking dalam pengujian
 ```
-10e. setup_project.sh
+11e. setup_project.sh
 ```setup_project.sh
 #!/bin/bash
 
@@ -354,7 +355,7 @@ echo "- Buka proyek di editor pilihan Anda."
 echo "- Tambahkan dependensi tambahan di pubspec.yaml jika diperlukan."
 echo "- Jalankan proyek dengan 'flutter run' di direktori proyek."
 ```
-10f. user_model.dart
+11f. user_model.dart
 ```user_model.dart
 import 'dart:convert'; // Mengimpor pustaka untuk JSON
 
@@ -424,9 +425,10 @@ class UserModel {
   }
 }
 ```
-11. Bukalah Terminal lalu ketik "flutter doctor" untuk memastikan bahwa semuanya berjalan dengan baik
+11. Bukalah Terminal lalu ketik ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
+12. 
 
-Dengan mengikuti langkah-langkah di atas, Anda akan memiliki aplikasi Flutter yang sepenuhnya berfungsi dengan pengaturan yang tepat
+Dengan mengikuti langkah-langkah di atas, Anda akan bisa memiliki aplikasi Flutter yang sepenuhnya berfungsi dengan pengaturan yang tepat
 
 ### Deskripsi _database_
 Aplikasi ini menggunakan ObjectBox untuk menyimpan informasi pengguna. Model pengguna didefinisikan dalam _file_ ```user_model.dart```.
