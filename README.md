@@ -425,12 +425,13 @@ class UserModel {
   }
 }
 ```
-12. Bukalah Terminal lalu ketik ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
+12. Bukalah Terminal lalu jalankan perintah ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
 13. Lalu, ketik ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
 14. Berikutnya, ketik ```flutter pub add hive_flutter:^1.1.0```
 15. Selanjutnya, ketik ```flutter pub get```
 16. Buat _file_ baru di _folder_ `dart-sdk/lib/models` bernama `user_model.dart` dengan isi sebagai berikut:
 ```dart
+import 'dart:convert';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -438,15 +439,68 @@ class UserModel {
   int id = 0; // ID pengguna
   String name; // Nama pengguna
 
-  UserModel({required this.name});
+  UserModel({required this.name}) {
+    // Validasi saat inisialisasi
+    if (id <= 0) {
+      throw ArgumentError('ID harus lebih besar dari 0');
+    }
+    if (name.isEmpty) {
+      throw ArgumentError('Nama tidak boleh kosong');
+    }
+  }
+
+  // Metode untuk memperbarui nama pengguna
+  void updateName(String newName) {
+    if (newName.isEmpty) {
+      throw ArgumentError('Nama tidak boleh kosong');
+    }
+    name = newName; // Memperbarui nama
+  }
+
+  // Mengonversi objek menjadi Map
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id, // Menyimpan ID
+      'name': name, // Menyimpan nama
+    };
+  }
+
+  // Membuat objek UserModel dari Map
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    if (map['id'] == null || map['name'] == null) {
+      throw ArgumentError('Data tidak valid');
+    }
+    return UserModel(
+      name: map['name'] as String, // Mengambil nama dari map
+    )..id = map['id'] as int; // Mengatur ID
+  }
+
+  // Serialisasi objek ke format JSON
+  String toJson() {
+    return jsonEncode(toMap()); // Mengonversi ke string JSON
+  }
+
+  // Deserialisasi objek dari format JSON
+  factory UserModel.fromJson(String json) {
+    final Map<String, dynamic> data = jsonDecode(json); // Mengonversi string JSON ke map
+    return UserModel.fromMap(data); // Menggunakan fromMap untuk validasi
+  }
+
+  @override
+  String toString() {
+    return 'UserModel{id: $id, name: $name}'; // Mengembalikan representasi string dari objek
+  }
+
+  // Metode untuk membuat salinan objek dengan perubahan
+  UserModel copyWith({int? id, String? name}) {
+    return UserModel(
+      name: name ?? this.name,
+    )..id = id ?? this.id;
+  }
 }
 ```
-17. Untuk menghasilkan kode ObjectBox:, jalankan perintah berikut di Terminal:
-```bash
-flutter pub run build_runner build
-```
-18. Ubah kode di `main.dart` untuk menginisialisasi ObjectBox:
-
+17. Untuk menghasilkan kode ObjectBox:, jalankan perintah `flutter pub run build_runner build` di Terminal.
+18. Agar dapat menginisialisasi ObjectBox, ubahlah kode di `main.dart` menjadi:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:objectbox/objectbox.dart';
@@ -494,7 +548,7 @@ class HomeScreen extends StatelessWidget {
 }
 ```
 
-19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan mengetikkan perintah `flutter run`
+19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`
 
 ### Deskripsi _database_
 Aplikasi ini menggunakan ObjectBox untuk menyimpan informasi pengguna. Model pengguna didefinisikan dalam _file_ ```user_model.dart```.
