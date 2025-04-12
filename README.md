@@ -426,9 +426,9 @@ class UserModel {
 }
 ```
 12. Bukalah Terminal lalu jalankan perintah ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
-13. Lalu, ketik ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
-14. Berikutnya, ketik ```flutter pub add hive_flutter:^1.1.0```
-15. Selanjutnya, ketik ```flutter pub get```
+13. Lalu, jalankan perintah ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
+14. Berikutnya, jalankan perintah ```flutter pub add hive_flutter:^1.1.0```
+15. Selanjutnya, jalankan perintah ```flutter pub get```
 16. Buat _file_ baru di _folder_ `dart-sdk/lib/models` bernama `user_model.dart` dengan isi sebagai berikut:
 ```dart
 import 'dart:convert';
