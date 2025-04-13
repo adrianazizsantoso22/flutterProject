@@ -31,7 +31,7 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 
 10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```.
 11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada _folder_ `src`:
-11a. git_commands.sh
+11a. `git_commands.sh`:
 ```git_commands.sh
 #!/bin/bash
 
@@ -82,7 +82,7 @@ git push -u origin development || { echo "Gagal mengirim branch 'development' ke
 # Menampilkan pesan sukses
 echo "Repositori berhasil diinisialisasi dan branch 'development' sudah dipush ke remote."
 ```
-11b. Main.java
+11b. `Main.java`:
 ```Main.java
 import java.util.Scanner;
 import java.util.Calendar;
@@ -165,7 +165,7 @@ public class Main {
     }
 }
 ```
-11c. main.dart
+11c. `main.dart`:
 ```main.dart
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -235,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Pesan disimpan
 ```
-11d. pubspec.yaml
+11d. `pubspec.yaml`:
 ```pubspec.yaml
 name: nama_proyek
 description: Aplikasi Flutter yang menggunakan Hive dan state management.
@@ -287,7 +287,7 @@ dev_dependencies:
     sdk: flutter
   mockito: ^5.0.0 # Untuk mocking dalam pengujian
 ```
-11e. setup_project.sh
+11e. `setup_project.sh`:
 ```setup_project.sh
 #!/bin/bash
 
@@ -364,7 +364,7 @@ echo "- Buka proyek di editor pilihan Anda."
 echo "- Tambahkan dependensi tambahan di pubspec.yaml jika diperlukan."
 echo "- Jalankan proyek dengan 'flutter run' di direktori proyek."
 ```
-11f. user_model.dart
+11f. `user_model.dart`:
 ```user_model.dart
 import 'dart:convert'; // Mengimpor pustaka untuk JSON
 
