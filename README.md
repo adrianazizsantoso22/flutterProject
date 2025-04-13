@@ -514,7 +514,7 @@ class UserModel {
   }
 }
 ```
-17. Untuk menghasilkan kode ObjectBox:, jalankan perintah `flutter pub run build_runner build` di Terminal.
+17. Untuk menghasilkan kode ObjectBox:, jalankan perintah `dart run dart-sdk/lib/models/user_model.dart` di Terminal.
 18. Agar dapat menginisialisasi ObjectBox, ubahlah kode di `main.dart` menjadi:
 ```dart
 import 'package:flutter/material.dart';
