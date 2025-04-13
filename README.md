@@ -19,9 +19,9 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 4. Pada Visual Studio Installer, unduhlah Visual Studio Community 2022 Preview sembari meng-_install workload_ berikut: a) _ASP.NET and web development_, b) _.NET desktop development_, c) _WinUI application development_, dan d) _Data storage and processing_.
 5. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
 6. Juga, jangan lupa unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
-7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```
-8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```
-9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```.
+8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```.
+9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```.
 
 
 ![image](https://github.com/user-attachments/assets/e21fee64-c505-43a7-8cc2-146f04ace57a)
@@ -29,7 +29,7 @@ Proyek ini merupakan aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox s
 ![image](https://github.com/user-attachments/assets/1aa1d6ee-0295-4c62-8ffc-f24176d8766e)
 
 
-10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```
+10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```.
 11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada _folder_ `src`:
 11a. git_commands.sh
 ```git_commands.sh
@@ -438,12 +438,12 @@ class UserModel {
 ![image](https://github.com/user-attachments/assets/fbefd834-b2e0-43fd-8f10-c642e788dbac)
 
 12. Bukalah Terminal lalu jalankan perintah ```flutter doctor``` untuk memastikan bahwa semuanya berjalan dengan baik.
-13. Lalu, jalankan perintah ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```
-14. Berikutnya, jalankan perintah ```flutter pub add hive_flutter:^1.1.0```
+13. Lalu, jalankan perintah ```cd C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin```.
+14. Berikutnya, jalankan perintah ```flutter pub add hive_flutter:^1.1.0```.
 
 ![image](https://github.com/user-attachments/assets/fc013b7f-c2d9-4a40-88d8-6f947d2a3f42)
 
-15. Selanjutnya, jalankan perintah ```flutter pub get```
+15. Selanjutnya, jalankan perintah ```flutter pub get```.
 16. Buat _file_ baru di _folder_ `dart-sdk/lib/models` bernama `user_model.dart` dengan isi sebagai berikut:
 ```dart
 import 'dart:convert';
@@ -563,7 +563,7 @@ class HomeScreen extends StatelessWidget {
 }
 ```
 
-19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`
+19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`.
 
 ### Deskripsi _database_
 Aplikasi ini menggunakan ObjectBox untuk menyimpan informasi pengguna. Model pengguna didefinisikan dalam _file_ ```user_model.dart```.
