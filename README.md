@@ -451,10 +451,10 @@ import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class UserModel {
-  int id = 0; // ID pengguna
+  int id; // ID pengguna
   String name; // Nama pengguna
 
-  UserModel({required this.name}) {
+  UserModel({required this.id, required this.name}) {
     // Validasi saat inisialisasi
     if (id <= 0) {
       throw ArgumentError('ID harus lebih besar dari 0');
@@ -486,8 +486,9 @@ class UserModel {
       throw ArgumentError('Data tidak valid');
     }
     return UserModel(
+      id: map['id'] as int, // Mengambil ID dari map
       name: map['name'] as String,
-    )..id = map['id'] as int; // Mengatur ID
+    );
   }
 
   // Serialisasi objek ke format JSON
@@ -509,17 +510,17 @@ class UserModel {
   // Metode untuk membuat salinan objek dengan perubahan
   UserModel copyWith({int? id, String? name}) {
     return UserModel(
+      id: id ?? this.id,
       name: name ?? this.name,
-    )..id = id ?? this.id;
+    );
   }
 }
 
 void main() {
   // Contoh penggunaan UserModel
   try {
-    // Membuat objek UserModel
-    UserModel user = UserModel(name: "John Doe");
-    user.id = 1; // Mengatur ID
+    // Membuat objek UserModel dengan ID yang valid
+    UserModel user = UserModel(id: 1, name: "John Doe");
     print(user.toString()); // Menampilkan detail pengguna
 
     // Memperbarui nama pengguna
@@ -538,8 +539,7 @@ void main() {
   }
 }
 ```
-17. Untuk menghasilkan kode ObjectBox:, jalankan perintah `dart run dart-sdk/lib/models/user_model.dart` di Terminal.
-18. Agar dapat menginisialisasi ObjectBox, ubahlah kode di `main.dart` menjadi:
+17. Agar dapat menginisialisasi ObjectBox, ubahlah kode di `main.dart` menjadi:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:objectbox/objectbox.dart';
@@ -586,8 +586,10 @@ class HomeScreen extends StatelessWidget {
   }
 }
 ```
-
-19. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`.
+18. Untuk menghasilkan kode ObjectBox:, jalankan perintah `dart run dart-sdk/lib/models/user_model.dart` di Terminal.
+19. Buatlah _folder_ baru bernama `lib` pada direktori `C:\Users\<username>\StudioProjects\<nama Flutter Project>`.
+20. Berikutnya, salin kodingan `main.dart` ke direktori `C:\Users\<username>\StudioProjects\<nama Flutter Project>\lib` agar tidak muncul pesan `Target file "lib\main.dart" not found` saat melakukan tahap berikutnya.
+21. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`.
 
 ### Deskripsi _database_
 Aplikasi ini menggunakan ObjectBox untuk menyimpan informasi pengguna. Model pengguna didefinisikan dalam _file_ ```user_model.dart```.
