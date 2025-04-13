@@ -589,6 +589,9 @@ class HomeScreen extends StatelessWidget {
 18. Untuk menghasilkan kode ObjectBox:, jalankan perintah `dart run dart-sdk/lib/models/user_model.dart` di Terminal.
 19. Buatlah _folder_ baru bernama `lib` pada direktori `C:\Users\<username>\StudioProjects\<nama Flutter Project>`.
 20. Berikutnya, salin kodingan `main.dart` ke direktori `C:\Users\<username>\StudioProjects\<nama Flutter Project>\lib` agar tidak muncul pesan `Target file "lib\main.dart" not found` saat melakukan tahap berikutnya.
+
+![image](https://github.com/user-attachments/assets/815bb0c5-3af7-45b0-8a3a-9c30b496990e)
+
 21. Untuk memastikan semuanya berfungsi dengan baik, jalankan _Flutter project_ kita dengan menjalankan perintah `flutter run`.
 
 ### Deskripsi _database_
