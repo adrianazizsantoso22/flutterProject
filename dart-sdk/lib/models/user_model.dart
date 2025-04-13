@@ -27,8 +27,8 @@ class UserModel {
   // Mengonversi objek menjadi Map
   Map<String, dynamic> toMap() {
     return {
-      'id': id, // Menyimpan ID
-      'name': name, // Menyimpan nama
+      'id': id,
+      'name': name,
     };
   }
 
@@ -38,24 +38,24 @@ class UserModel {
       throw ArgumentError('Data tidak valid');
     }
     return UserModel(
-      name: map['name'] as String, // Mengambil nama dari map
+      name: map['name'] as String,
     )..id = map['id'] as int; // Mengatur ID
   }
 
   // Serialisasi objek ke format JSON
   String toJson() {
-    return jsonEncode(toMap()); // Mengonversi ke string JSON
+    return jsonEncode(toMap());
   }
 
   // Deserialisasi objek dari format JSON
   factory UserModel.fromJson(String json) {
-    final Map<String, dynamic> data = jsonDecode(json); // Mengonversi string JSON ke map
-    return UserModel.fromMap(data); // Menggunakan fromMap untuk validasi
+    final Map<String, dynamic> data = jsonDecode(json);
+    return UserModel.fromMap(data);
   }
 
   @override
   String toString() {
-    return 'UserModel{id: $id, name: $name}'; // Mengembalikan representasi string dari objek
+    return 'UserModel{id: $id, name: $name}';
   }
 
   // Metode untuk membuat salinan objek dengan perubahan
@@ -63,5 +63,29 @@ class UserModel {
     return UserModel(
       name: name ?? this.name,
     )..id = id ?? this.id;
+  }
+}
+
+void main() {
+  // Contoh penggunaan UserModel
+  try {
+    // Membuat objek UserModel
+    UserModel user = UserModel(name: "John Doe");
+    user.id = 1; // Mengatur ID
+    print(user.toString()); // Menampilkan detail pengguna
+
+    // Memperbarui nama pengguna
+    user.updateName("Jane Doe");
+    print("Nama baru: ${user.name}");
+
+    // Serialisasi ke JSON
+    String json = user.toJson();
+    print("JSON: $json");
+
+    // Deserialisasi dari JSON
+    UserModel newUser = UserModel.fromJson(json);
+    print("Pengguna baru: ${newUser.toString()}");
+  } catch (e) {
+    print("Terjadi kesalahan: $e");
   }
 }
