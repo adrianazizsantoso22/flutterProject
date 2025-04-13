@@ -3,7 +3,7 @@
 oleh: Adrian Aziz Santoso (NRP 5025221229)
 untuk memenuhi tugas: Pemrograman Perangkat Bergerak (B)
 
-_Flutter project_ ini berupa aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox sebagai database lokal. Aplikasi ini dibuat untuk memenuhi tugas mata kuliah Pemrograman Perangkat Bergerak untuk mengeksplorasi teknologi _mobile database_, dan tak kalah pentingnya adalah untuk
+_Flutter project_ ini berupa aplikasi Flutter yang mmenggunakan Dart SDK dan ObjectBox sebagai database lokal. Aplikasi ini dibuat untuk memenuhi tugas mata kuliah Pemrograman Perangkat Bergerak untuk mengeksplorasi teknologi _mobile database_, dan tak kalah pentingnya adalah untuk membantu pengguna berinteraksi dengan data pengguna dan menyimpan informasi dengan mudah.
 
 ## Fitur utama
 - **CRUD Operations**: Menambahkan, mengambil, dan menghapus data pengguna.
