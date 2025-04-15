@@ -20,7 +20,7 @@ _Flutter project_ ini berupa aplikasi Flutter yang menggunakan Dart SDK dan Obje
 5. Selanjutnya, unduh Dart-SDK dalam bentuk .zip melalui [tautan berikut](https://dart.dev/get-dart/archive)
 6. Juga, jangan lupa unduh Flutter dalam bentuk .zip melalui [tautan berikut](https://docs.flutter.dev/get-started/install)
 7. Berikutnya, ekstrak Dart-SDK dan Flutter yang sudah diunduh lalu letakkan _folder_ ```dart-sdk``` maupun _folder_ ```flutter``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>```.
-8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk" pada variabel PATH```.
+8. Carilah menu ```Edit the system environment variables``` pada menu ```Start```, lalu klik ```Environment variables``` lalu tambahkan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter\bin``` dan ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\dart-sdk``` pada variabel ```PATH```.
 9. Bukalah pengaturan pada Android Studio lalu pada bagian ```Languages & Frameworks```, atur ```Dart SDK Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```.
 
 
@@ -31,6 +31,7 @@ _Flutter project_ ini berupa aplikasi Flutter yang menggunakan Dart SDK dan Obje
 
 10. Masih pada bagian  ```Languages & Frameworks```, kini atur ```Flutter Path``` pada ```C:\Users\<username>\StudioProjects\<nama Flutter Project>\flutter```.
 11. Buatlah sebuah _Flutter project_ di mana Anda membuat kodingan berikut pada _folder_ `src`:
+
 11a. `git_commands.sh`:
 ```git_commands.sh
 #!/bin/bash
@@ -233,7 +234,9 @@ class _HomeScreenState extends State<HomeScreen> {
       widget.box.put('greeting', _controller.text);
       _loadGreeting(); // Memuat ulang pesan setelah menyimpan
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Pesan disimpan
+          SnackBar(content: Text('Pesan disimpan))
+      );
+}}
 ```
 11d. `pubspec.yaml`:
 ```pubspec.yaml
